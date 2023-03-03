@@ -13,10 +13,13 @@ export const taskReducer = (state = initialState, action) => {
         },
       ];
     case TOGGLE_TASK:
-      return state.map((task) => {
-        task.id === action.payload.id
-          ? { ...task, completed: !task.completed }
-          : task;
+      return state.map((task, i) => {
+        if (task.id === action.payload.id) {
+          return Object.assign({}, task, {
+            completed: !task.completed
+          })
+        }
+        return task
       });
     default:
       return state;

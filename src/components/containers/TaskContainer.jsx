@@ -23,7 +23,6 @@ const mapStateToProps = (rootReducer) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onTaskClick: (id) => {
-      console.log(id);
       dispatch(toggleTask(id));
     },
   };
